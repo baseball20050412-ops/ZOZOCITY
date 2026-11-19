@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+ <meta charset="UTF-8">
+ <title> 商品紹介ページ </title>
+ <style>
+ 
+  body{ background-color:#cfd6f4; 
+        margin: 0;}
+  h1  { color:#001ea6; }
+  th  { background-color:#ACB5DB;
+        border: px solid #ACB5DB}
+  tr  { border: 1px solid #ACB5DB}
+  td  { border: 1px solid #ACB5DB}
+  td:first-child {
+        background-color: #ACB5DB;}
+  p   { color:#000000; }
+  
+ .price { color: #ff0f0f; 
+          font-size: clamp(30px, 2.5vw, 24px);
+          font-weight: bold;
+}
+   
+.shohin {
+		border: 20px solid #4060F2FF;
+		padding: 16px;
+		background-color:#cfd6f4 ;
+		margin: 20px;
+}
+ 
+.ichiran {
+   display: flex;
+   gap: 14px;}
+
+.page {
+		width: 90%;
+		max-width: 1200px;
+		margin: 0 auto;
+}
+
+.header {
+		background-color:#7bc8ff ;
+		color: #FFFFFF;
+		padding: 5px 0;
+		font-size: 20px;
+		font-weight: bold;
+}
+.header p {
+        width: 90%;
+        max-width: 1200px;
+        margin: 16px auto;
+}
+
+.subs { display: flex; 
+        gap: 0px;
+        width: 100%;
+        margin-bottom: 18px;
+}
+.sub  { width: 25%; }
+
+.main { 
+   		display: flex; 
+        gap: 32px;
+        align-shrink: flex-start;
+}
+
+.main > div:first-child {
+    	width: 52%;
+    	flex-shrink: 0;
+}
+
+.info h3 {
+    	font-size: clamp(20px, 2vw, 36px);
+}
+
+.info h2 {
+   		font-size: clamp(20px, 1.8vw, 34px);
+}
+
+.info table {
+    	font-size: clamp(16px, 1.3vw, 30px);
+    	
+}
+
+
+.buy {
+		display: inline-block;
+		background-color:#7bc8ff;
+		color:#ffffff;
+		border:none;
+		padding: 15px 40px;
+		font-size: 18px;
+		font-weight: bold;
+		text-decoration: none !important;
+		cursor: pointer;
+		
+		border-radius: 50px;
+} 
+
+a.buy {
+		text-decoration: none !important;
+}
+
+.buy:hover {
+		background-color: #4060F2FF;
+}
+
+.botton {
+		display: flex;
+		gap: 30px;
+		margin-top: 30px;
+}
+.related { width: 50%; }
+
+.related img {
+		width: 100px;
+		margin: 5px;
+}
+
+.size { width: 50%; }
+
+.related-products {
+		display: flex;
+		gap: 15px;
+		margin-top: 20px;
+		width: 52%;
+}
+
+.related-item {
+		flex: 1;
+		min-width: 0;
+}
+
+.related-item img {
+		display: block;
+		width: 100%;
+		height: 180px;
+		object-fit: cover;
+}
+.related-item p {
+		margin: 5px 0;
+}
+.image-viewer {
+		position: relative;
+		width: 100%;
+}
+
+#mainImage {
+		width: 100%;
+		display: block;
+}
+
+.arrow {
+    	position: absolute;
+    	top: 50%;
+    	transform: translateY(-50%);
+    	background-color: rgba(0, 0, 0, 0.5);
+    	color: white;
+    	border: none;
+    	font-size: 25px;
+    	padding: 10px;
+    	cursor: pointer;
+}
+
+.left {
+    	left: 0;
+}
+
+.right {
+    	right: 0;
+}
+
+.relate-title {
+		background-color:#7bc8ff;
+		padding:10px;
+}
+
+.purchase-area {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.favorite {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 55px;
+    height: 55px;
+    padding: 5px;
+    flex-shrink: 0;
+}
+
+.favorite svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: #888888;
+    stroke-width: 1.3;
+    transition: fill 0.2s;
+}
+
+.favorite.active svg {
+    fill: red;
+    stroke: red;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+	<p>ZOZOCITY</p>
+</div>
+
+<div class="page">
+
+ <div class="main">
+ <div>
+  <div class="image-viewer">
+
+    <button class="arrow left" onclick="changeImage(-1)">←</button>
+
+    <img id="mainImage" src="112651266_b_10_500.jpg" alt="商品画像">
+
+    <button class="arrow right" onclick="changeImage(1)">→</button>
+
+  </div>
+ 
+ <div class="subs">
+	<img class="sub" src="112651266_1_d_215.jpg" alt=" ホワイト ">
+	<img class="sub" src="112651266_8_d_500.jpg" alt=" ブラック ">
+	<img class="sub" src="112651266_b_05_500.jpg" alt=" 胸部 ">
+	<img class="sub" src="112651266_b_06_500.jpg" alt=" 背面 ">
+ </div>
+</div>
+
+<div class="info">
+	<h3>M.LEAGUE ユニフォーム T</h3>
+	<p class="price">3900円 </p>
+
+	<p>カラー：ホワイト・ブラック</p>
+  <div class="purchase-area">
+	<a href="https://zozo.jp/shop/zozomesse/goods/111651266/?did=177994652" class="buy"> 購入する</a>
+	
+		<button class="favorite" onclick="toggleFavorite(this)">
+    <svg viewBox="0 0 24 24">
+        <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/>
+    </svg>
+		</button>
+  </div>
+	<li>洗濯機で洗える</li>
+	<li>日本製</li>
+	<li>ポリエステル100％</li>
+	<h2>サイズ表</h2>
+
+	<table>
+		<tr><th>サイズ</th><th>身幅</th><th>着丈</th></tr>
+		<tr><td>S</td><td>47cm</td><td>66cm</td></tr>
+		<tr><td>M</td><td>50cm</td><td>69cm</td></tr>
+		<tr><td>L</td><td>53cm</td><td>72cm</td></tr>
+		<tr><td>XL</td><td>56cm</td><td>75cm</td></tr>
+	</table>
+	
+</div>
+</div>
+
+
+<span class="relate-title">
+	関連商品
+</span>
+
+<div class="related-products">
+
+	<div class="related-item">
+		<a href="https://zozo.jp/shop/zozomesse/goods/111651267/?did=177994660&rid=1495 ">
+			<img src="112651267_8_d_500.jpg" alt="商品A">
+		</a>
+		<p>M.LEAGUE ユニフォーム T</p>
+		<p>3,900円</p>
+	</div>
+	<div class="related-item">
+		<a href="https://zozo.jp/shop/zozomesse/goods/111651263/?did=177994634&rid=1080 ">
+			<img src="112651263_40367_d_500.jpg" alt="商品A">
+		</a>
+		<p>M.LEAGUE ユニフォーム T</p>
+		<p>3,900円</p>
+	</div>
+	<div class="related-item">
+		<a href="https://zozo.jp/shop/zozomesse/goods/111651261/?did=177994610&rid=1080 ">
+			<img src="112651261_8_d_500.jpg"alt="商品A">
+		</a>
+		<p>M.LEAGUE ユニフォーム T</p>
+		<p>3,900円</p>
+	</div>
+
+</div>
+
+<a href="https://zozo.jp/"> ZOZOTOWN.HP </a>
+</div>
+<script>
+const images = [
+    "112651266_b_10_500.jpg",
+    "112651266_8_d_500.jpg",
+    "112651266_b_05_500.jpg",
+    "112651266_b_06_500.jpg"
+];
+
+let currentIndex = 0;
+
+function changeImage(direction) {
+    currentIndex += direction;
+
+    if (currentIndex >= images.length) {
+        currentIndex = 0;
+    }
+
+    if (currentIndex < 0) {
+        currentIndex = images.length - 1;
+    }
+
+    document.getElementById("mainImage").src = images[currentIndex];
+}
+</script>
+<script>
+function toggleFavorite(button) {
+    button.classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
